@@ -1,0 +1,28 @@
+          ORG $8000
+
+STRINGA      DC.B  'ORA',0
+DIM              DC.L   3
+
+
+          ORG $8100
+
+START     LEA STRINGA,A0        *ho salvato l'indirizzo del primo e dell'ultimo elemento 
+                  
+                LEA STRINGA,A1
+                ADD.L DIM,A1
+
+LOOP               SUB.L   #1,DIM
+                        BMI    PALINDROMA
+                        MOVE.B (A0)+,D1
+                        MOVE.B -(A1),D2
+                        CMP.B  D2,D1
+                         
+                        
+                        BEQ    LOOP
+                
+                        MOVE.L #1,D0               *SE DO è 1 ALLORA LA PAROLA NON è PALINDROMA
+
+PALINDROMA                     END START
+
+
+

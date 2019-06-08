@@ -1,0 +1,36 @@
+                 ORG $8800
+
+ VETT:      DC.W 4,5,2,3,7,9,11
+
+                 ORG $8000
+START
+                  MOVE.L #6,D0                    *Contatore indice 
+                  CLR D3                            *accumulatore numeri dispari 
+                  CLR D4                            *accumulatore numeri pari 
+                  
+
+                  LEA.L  VETT,A0
+LOOP         MOVE.W (A0)+,D1		
+                  
+                  BTST #0,D1                    *BTS farà un test sul bit meno significativo e mettera nel flag Z il valore clear se il bit è 0 oppure 1 se il bit è 1. Numero pari:0; Numero dispari:1
+                  BNE  DISPARI                 *se il flag Z=1 allora salta a DISPARI  
+                  ADD  D1,D4                     *altrimenti
+                  BRA  SUCC
+DISPARI     ADD D1,D3 
+                    
+SUCC        SUB.L #1,D0
+                  BPL   LOOP                     *se l'ultima operazione fatta ci ha dato un risultato positivo ripeti da loop
+
+                  
+                
+                  END START                        
+
+                  
+
+
+
+
+
+
+
+
