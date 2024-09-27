@@ -1,0 +1,3 @@
+# LabVIEW Examples
+In this folder you can find some VIs to perform different operations in LabVIEW, such as signal generation (sine waves, sawtooth waves, ...), operations like quantizers, rectifiers and saturation. In addition, there is a zip archive "labview_examples.zip" containing additional examples of VIs that were not created by me but are derived from examples collected during university and of which I do not remember the source nor do I assume paternity.
+If you have any questions about the VIs under the "subVIs" folder, feel free to ask for help.

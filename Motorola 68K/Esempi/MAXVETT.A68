@@ -1,0 +1,32 @@
+                 ORG  $8000
+
+VETT:        DC.B 5,4,7,8,6,2
+DIM:          DC.L 5
+
+
+                 ORG  $8100
+ 
+SCAMBIA   MOVE.B 1(A0),D0
+                   RTS
+ 
+START      
+                  CLR D3
+                  MOVE.L  DIM,D3
+                  LEA.L   VETT,A0
+                  MOVE.B   (A0),D0
+LOOP         MOVE.B   1(A0),D1
+      
+                  CMP   D1,D0
+                  BGE    NONSCAMBIA
+                  JSR     SCAMBIA 
+
+NONSCAMBIA   ADD.L  #1,A0
+                          SUB.L  #1,D3
+                          
+                           TST D3
+                           BPL LOOP
+
+   
+                   END START
+
+

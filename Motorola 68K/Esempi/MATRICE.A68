@@ -1,0 +1,19 @@
+                ORG $8000
+
+MATRICE  DC.B 7,1,2,3
+                 DC.B 7,2,3,4
+                 DC.B 8,9,2,6
+                 DC.B 2,1,3,0
+
+
+
+
+
+                ORG $8800
+
+START   LEA.L MATRICE,A0
+             CLR.L D3
+             MOVE.L #1,D3
+             CLR.D0
+             CLR D1 
+   
